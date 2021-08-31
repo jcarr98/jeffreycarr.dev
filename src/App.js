@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import { Heading, Grommet } from 'grommet';
+
+import Main from './Apps/PW/pages/Main';
+import RecipeRouter from './Apps/RecipeBook/RecipeRouter';
+import WebsiteRouter from './Apps/PW/WebsiteRouter';
+
+/**
+ * Determines which app to start up depending on which (sub)domain the user visits
+ * @returns The App to run based on the user's input
+ */
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    if(window.location.host.split('.')[0] === 'recipe') {
+        return (
+            <Router>
+                <RecipeRouter />
+            </Router>
+        );
+    }
+    else {
+        return (
+            <Router>
+                <WebsiteRouter />
+            </Router>
+        );
+    }
 }
 
 export default App;

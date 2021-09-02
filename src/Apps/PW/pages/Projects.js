@@ -4,10 +4,10 @@ import AppBar from '../../../globals/components/AppBar';
 
 function Projects() {
     return (
-        <Grommet>
+        <div>
             <AppBar />
             <h1>Projects Page</h1>
-        </Grommet>
+        </div>
     );
 }
 

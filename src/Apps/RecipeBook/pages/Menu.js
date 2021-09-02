@@ -21,7 +21,7 @@ function Menu() {
     }, []);
 
     return (
-        <Grommet>
+        <div>
             <AppBar />
             <h1>Full Recipe List</h1>
             <div>
@@ -34,7 +34,7 @@ function Menu() {
 
             <a href="http://recipe.localhost:3000/test">To test page</a>
             
-        </Grommet>
+        </div>
     );
 }
 

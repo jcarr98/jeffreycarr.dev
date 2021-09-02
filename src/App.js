@@ -1,9 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { Heading, Grommet } from 'grommet';
-
-import Main from './Apps/PW/pages/Main';
 import RecipeRouter from './Apps/RecipeBook/RecipeRouter';
 import WebsiteRouter from './Apps/PW/WebsiteRouter';
 
@@ -12,11 +9,13 @@ import WebsiteRouter from './Apps/PW/WebsiteRouter';
  * @returns The App to run based on the user's input
  */
 function App() {
+
     if(window.location.host.split('.')[0] === 'recipe') {
         return (
             <Router>
                 <RecipeRouter />
             </Router>
+            
         );
     }
     else {

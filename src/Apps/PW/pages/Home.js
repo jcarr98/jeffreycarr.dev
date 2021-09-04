@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Anchor, Box, Button, Image, Paragraph, Text } from 'grommet';
+import { Anchor, Avatar, Box, Button, Image, Paragraph, Text } from 'grommet';
 import { Github, Linkedin } from 'grommet-icons';
 
 import AppBar from '../../../globals/components/AppBar';
@@ -17,14 +17,11 @@ function Main() {
             </Box>
 
             {/*** Image and social links ***/}
-            <Box height="small" width="small" round="full">
-                <Image
-                    fit="cover"
-                    fill
-                    src={profile}
-                    a11yTitle="My profile picture"
-                />
-            </Box>
+            <Avatar 
+                src={profile}
+                size="5xl"
+            />
+
             <Box direction="row" gap="small" pad="small">
                 <Anchor 
                     href="https://github.com/jcarr98" 

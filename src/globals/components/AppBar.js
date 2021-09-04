@@ -5,8 +5,14 @@ import { Apps, Home } from 'grommet-icons';
 
 function AppBar(props) {
     return(
-        <Header background="main" pad="small" elevation="large">
-            <Anchor href="http://localhost:3000" color="text">
+        <Header
+        background="main" 
+        pad="small"
+        width="full"
+        style={{ position: "sticky", top: "0", zIndex: "1" }}
+        responsive
+        >
+            <Anchor href="http://localhost:3000" color="mainText">
                 <Home />
             </Anchor>
             <Text size="xlarge" weight="bold">Jeffrey Carr</Text>
@@ -26,6 +32,7 @@ function AppBar(props) {
                 </Box>
             </Menu>
         </Header>
+        
     );
 }
 

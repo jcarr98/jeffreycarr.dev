@@ -1,12 +1,10 @@
 import React from 'react';
 
-import { Anchor, Box, Button, Heading, Image, List, Paragraph, Text, Tip } from 'grommet';
-import { Down, Github, Linkedin } from 'grommet-icons';
+import { Anchor, Box, Button, Image, Paragraph, Text } from 'grommet';
+import { Github, Linkedin } from 'grommet-icons';
 
 import AppBar from '../../../globals/components/AppBar';
-import Line from '../components/Line';
 import profile from '../assets/profile.jpg';
-import resume from '../assets/Jeffrey\ Carr\ Resume.pdf';
 
 function Main() {
     return(

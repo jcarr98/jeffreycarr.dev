@@ -80,7 +80,7 @@ function Menu() {
             </Nav>
 
             {/* Displays spinner if data is still loading, displays recipe list otherwise */}
-            {loading ? <Loading /> : <RecipeList recipes={recipeList} search={searchValue} categories={categoriesValue} /> }
+            {loading ? <Loading text="Loading Recipe List..." /> : <RecipeList recipes={recipeList} search={searchValue} categories={categoriesValue} /> }
         </Box>
     );
 }

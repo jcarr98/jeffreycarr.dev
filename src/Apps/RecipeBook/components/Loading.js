@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Box, Spinner, Text } from 'grommet';
+import { Box, defaultProps, Spinner, Text } from 'grommet';
 
-function Loading() {
+function Loading(props) {
     return(
         <Box align="center" pad="xlarge">
             <Spinner color="main" />
-            <Text>Loading Recipes...</Text>
+            <Text>{props.text}</Text>
         </Box>
     );
 }

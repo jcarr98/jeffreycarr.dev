@@ -6,14 +6,18 @@ import { LinkPrevious } from 'grommet-icons';
 
 import AppBar from '../../../globals/components/AppBar';
 import ProjectCard from '../components/ProjectCard';
+import Loading from '../../RecipeBook/components/Loading';
 
 function Projects() {
     const [repoList, setRepoList] = useState([]);
+    const [loading, setLoading] = useState([]);
 
     // Get projects list
     useEffect(() => {
+        setLoading(true);
         Axios.get('https://api.github.com/users/jcarr98/repos').then((data) => {
             setRepoList(data.data);
+            setLoading(false);
         });
     }, []);
 
@@ -36,7 +40,13 @@ function Projects() {
                 <Heading>My Projects</Heading>
             </Box>
             
-            <Grid gap="large" pad="medium" columns={{ count: 'fit', size: "medium"}}>
+            {loading ? <Loading text="Loading Projects..." /> : null}
+            <Grid 
+                gap="large" 
+                pad="medium" 
+                columns={{ count: 'fit', size: "medium"}} 
+                style={{visibility: loading ? "hidden" : "visible"}}
+            >
                 {repoList.map((val,key) => {
                     return(
                         <ProjectCard key={val.id} name={val.name} description={val.description} url={val.html_url} />

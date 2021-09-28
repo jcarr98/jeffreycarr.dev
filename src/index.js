@@ -12,7 +12,8 @@ const theme = {
       main: '#da5555',
       secondary: '#4d4d4d',
       mainText: '#ffffff',
-      secondaryText: '#000000'
+      secondaryText: '#000000',
+      placeholder: '#ffffff'
     },
     elevation: {
       dark: {

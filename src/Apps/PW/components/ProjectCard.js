@@ -4,12 +4,10 @@ import { Box, Button, Card, CardHeader, CardBody, CardFooter, Heading } from 'gr
 import { Link, LinkNext } from 'grommet-icons';
 
 function ProjectCard(props) {
-    const [bc, setbc] = useState([]);
     const [el, setel] = useState([]);
 
     useEffect(() => {
-        setbc({border: "0px solid red"});
-        setel(["none"]);
+        setel("none");
     }, []);
 
     let desc = props.description;
@@ -18,13 +16,11 @@ function ProjectCard(props) {
         desc = "No description available";
     }
 
-    function colorBorder() {
-        setbc({border: "3px solid red"});
+    function elevate() {
         setel("medium");
     }
 
-    function decolorBorder() {
-        setbc({border: "0px solid red"});
+    function unelevate() {
         setel("none");
     }
 
@@ -32,11 +28,10 @@ function ProjectCard(props) {
         <Card 
             align="center"
             elevation={el}
-            // style={bc}
             pad="medium" 
             background="secondary"
-            onMouseEnter={() => colorBorder()}
-            onMouseLeave={() => decolorBorder()}
+            onMouseEnter={() => elevate()}
+            onMouseLeave={() => unelevate()}
         >
             <CardHeader background="main" width="full" round>
                 <Box width="full" align="center">

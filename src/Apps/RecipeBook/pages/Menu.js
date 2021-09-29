@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {useHistory} from 'react-router-dom';
 
 import Axios from 'axios';
-import { Box, CheckBoxGroup, DropButton, Heading, Nav, Text, TextInput } from 'grommet';
+import { Box, CheckBoxGroup, DropButton, Grid, Heading, Nav, Text, TextInput } from 'grommet';
 import { Search } from 'grommet-icons';
 
 import AppBar from '../../../globals/components/AppBar';
-import RecipeList from '../components/RecipeList';
+import RecipeCard from '../components/RecipeCard';
 import Loading from '../components/Loading';
 
 function Menu() {
@@ -79,8 +78,22 @@ function Menu() {
                     />
             </Nav>
 
-            {/* Displays spinner if data is still loading, displays recipe list otherwise */}
-            {loading ? <Loading text="Loading Recipe List..." /> : <RecipeList recipes={recipeList} search={searchValue} categories={categoriesValue} /> }
+            {/* Shows loading spinner if loading, shows list once loaded */}
+            {loading ? <Loading /> : null}
+            <Grid width="full" gap="medium" pad="medium" columns={{ count: 'fit', size: "medium"}} style={{visibility: loading ? "hidden" : "visible"}}>
+                {recipeList.filter(function(val,key) {
+                    // Clause checks if no filter is applied
+                    if(categoriesValue.length === 0) {
+                        return true;
+                    } else {
+                        return (categoriesValue.includes(val.category) ? true: false);
+                    }
+                }).filter(function(val,key) {
+                    return(val.name.toLowerCase().indexOf(searchValue) > -1 ? true : false);
+                }).map((val,key) => {
+                    return(<RecipeCard key={val.id} name={val.name} details={val.details} id={val.id} />);
+                })}
+            </Grid>
         </Box>
     );
 }

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import { Button, Box, Table, TableHeader, TableRow, TableCell, TableBody, Text, Accordion, AccordionPanel, CheckBox } from 'grommet';
-import { LinkPrevious } from 'grommet-icons';
+import { Accordion, AccordionPanel, Box, Table, TableCell, TableHeader, TableRow, TableBody, Text } from 'grommet';
 import Axios from 'axios';
 
 import AppBar from '../../../globals/components/AppBar';
 import Loading from '../components/Loading';
+import Direction from '../components/Direction';
+import Back from '../../../globals/components/Back';
 
 function Recipe(props) {
     const [recipeInfo, setRecipeInfo] = useState([]);
@@ -13,7 +14,6 @@ function Recipe(props) {
     const [directionsList, setDirectionsList] = useState([]);
     const [loading, setLoading] = useState([]);
     const [activeIndex, setActiveIndex] = useState([0,1]);
-    const [completedSteps, setCompletedSteps] = useState([]);
 
     const pathname = window.location.pathname.split('/');
     const id = pathname[pathname.length-1];
@@ -58,53 +58,29 @@ function Recipe(props) {
         });
     }, []);
 
-    function completeStep(i) {
-        /* Check if the step is completed already
-         * If it is, then remove it from completed steps and update the list
-         * If it isn't, the add it to the completed steps and update the list
-        */
-       let newCompletedSteps = completedSteps;
-       if(completedSteps.includes(i)) {
-           // Find index of item
-           let index = newCompletedSteps.indexOf(i);
-           // Remove item
-           newCompletedSteps.splice(index, 1);
-       } else {
-           newCompletedSteps.push(i);
-       }
-
-       setCompletedSteps(newCompletedSteps);
-       console.log("Updated completed steps: " + completedSteps);
-    }
-
     return(
         <Box align="center" full responsive>
             <AppBar />
 
             {/* Back to recipe list */}
-            <Box alignSelf="start" pad="medium">
-                <Button 
-                    href="http://recipe.localhost:3000/" 
-                    color="main" 
-                    icon={ <LinkPrevious color="main" size="medium" /> } 
-                    label="Back to Recipe List"
-                    plain
-                />
-            </Box>
+            <Back link="http://recipe.localhost:3000/" label="Back to Recipe List" />
 
             {loading ? <Loading text="Loading Recipe..." /> : null}
             <Box align="center" style={{visibility: loading ? "hidden" : "visible"}}>
                 <h1>{recipeInfo.name}</h1>
 
+                {/* Accordion holding both ingredients list and steps */}
                 <Accordion 
                     multiple={true} 
                     activeIndex={activeIndex}
                     onActive={newActiveIndex => setActiveIndex(newActiveIndex)}
                     animate={true}
                 >
+                    {/* Ingredients list */}
                     <AccordionPanel label="Ingredients" >
                         <Box align="center" pad="medium">
                             <Table>
+                                {/* Headers for table */}
                                 <TableHeader>
                                     <TableRow>
                                         <TableCell scope="col" border="bottom" key="Ingredient">
@@ -119,6 +95,7 @@ function Recipe(props) {
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
+                                    {/* Maps ingredients to table */}
                                     {ingredientList.map((val,key) => {
                                         return(
                                             <TableRow key={val.uid}>
@@ -138,23 +115,17 @@ function Recipe(props) {
                             </Table>
                         </Box>
                     </AccordionPanel>
+                    {/* Directions list */}
                     <AccordionPanel label="Directions">
                         <Box>
+                            {/* Maps directions to a list. Directions are checkboxes */}
                             {directionsList.map((val,key) => {
                                 return(
-                                    <CheckBox 
-                                        label={
-                                            <Text style={{
-                                                textDecoration: completedSteps.includes(val.step_num) ? "line-through" : "none",
-                                                color: completedSteps.includes(val.step_num) ? "gray" : "white"
-                                            }}>
-                                                {val.step}
-                                            </Text>
-                                        }
-                                        key={val.step_num}
-                                        onChange={() => completeStep(val.step_num)}
-                                        pad="xsmall" 
-                                    />
+                                    <ul style={{listStyleType: "none"}}>
+                                        <li>
+                                            <Direction stepNum={val.step_num} step={val.step} />
+                                        </li>
+                                    </ul>
                                 );
                             })}
                         </Box>

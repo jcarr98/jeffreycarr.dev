@@ -4,6 +4,7 @@ import { Box, Button, Footer, Heading, List, Paragraph, Text } from 'grommet';
 import { LinkPrevious } from 'grommet-icons';
 
 import AppBar from '../../../globals/components/AppBar';
+import Back from '../../../globals/components/Back';
 import resume from '../assets/Jeffrey\ Carr\ Resume.pdf';
 
 function Resume() {
@@ -12,15 +13,7 @@ function Resume() {
             <AppBar />
 
             {/* Home link */}
-            <Box alignSelf="start" pad="medium">
-                <Button 
-                    href="http://localhost:3000/" 
-                    color="main" 
-                    icon={ <LinkPrevious color="main" size="medium" /> } 
-                    label="Back to Home"
-                    plain
-                />
-            </Box>
+            <Back link="http://localhost:3000/" label="Back to Home" />
 
             <Heading>Resume Overview</Heading>
             {/* Education */}

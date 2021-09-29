@@ -7,6 +7,7 @@ import { LinkPrevious } from 'grommet-icons';
 import AppBar from '../../../globals/components/AppBar';
 import ProjectCard from '../components/ProjectCard';
 import Loading from '../../RecipeBook/components/Loading';
+import Back from '../../../globals/components/Back';
 
 function Projects() {
     const [repoList, setRepoList] = useState([]);
@@ -26,15 +27,7 @@ function Projects() {
             <AppBar />
 
             {/* Home link */}
-            <Box alignSelf="start" pad="medium">
-                <Button 
-                    href="http://localhost:3000/" 
-                    color="main" 
-                    icon={ <LinkPrevious color="main" size="medium" /> } 
-                    label="Back to Home"
-                    plain
-                />
-            </Box>
+            <Back link="http://localhost:3000/" label="Back to Home" />
 
             <Box width="full" align="center">
                 <Heading>My Projects</Heading>

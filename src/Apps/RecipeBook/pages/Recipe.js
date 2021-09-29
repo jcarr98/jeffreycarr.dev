@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Button, Box, List, Table, TableHeader, TableRow, TableCell, TableBody, Text, Accordion, AccordionPanel, CheckBox } from 'grommet';
+import { Button, Box, Table, TableHeader, TableRow, TableCell, TableBody, Text, Accordion, AccordionPanel, CheckBox } from 'grommet';
 import { LinkPrevious } from 'grommet-icons';
 import Axios from 'axios';
 
@@ -125,7 +125,7 @@ function Recipe(props) {
                                                 <TableCell scope="row" border="bottom" key={`${key}:A`}>
                                                     <Text>{val.name}</Text>
                                                 </TableCell>
-                                                <TableCell scope="row" border="bottom" key={`${key}:B`}>
+                                                <TableCell scope="row" border="left right" key={`${key}:B`}>
                                                     <Text>{val.amount}</Text>
                                                 </TableCell>
                                                 <TableCell scope="row" border="bottom" key={`${key}:C`}>
@@ -153,7 +153,8 @@ function Recipe(props) {
                                         }
                                         key={val.step_num}
                                         onChange={() => completeStep(val.step_num)}
-                                        pad="xsmall" />
+                                        pad="xsmall" 
+                                    />
                                 );
                             })}
                         </Box>

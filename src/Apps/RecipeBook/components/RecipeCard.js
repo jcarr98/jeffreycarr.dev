@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { Box, Button, Card, CardHeader, CardBody, CardFooter, Heading } from 'grommet';
-import { useEffect } from 'react';
+import { Favorite } from 'grommet-icons';
 
 function RecipeCard(props) {
     const [el, setel] = useState([]);
@@ -20,6 +21,11 @@ function RecipeCard(props) {
         setel("none")
     }
 
+    function saveFavorite() {
+        // Callback method from RecipeMenu
+        props.addToFavorites(props.name, props.id);
+    }
+
     return (
         <Card 
             align='center'
@@ -36,7 +42,22 @@ function RecipeCard(props) {
             </CardHeader>
             <CardBody pad="small">{props.details}</CardBody>
             <CardFooter pad="small">
-                <Button primary color="main" href={link} label="Check Out" />
+                {/* Link to recipe */}
+                <Button 
+                    primary 
+                    color="main" 
+                    href={link} 
+                    label="Check Out" 
+                />
+                {/* Add to favorites */}
+                <Button 
+                    secondary 
+                    plain
+                    color="main"
+                    onClick={() => saveFavorite()} 
+                    label={<Favorite color="main" />}
+                    tip="Add to favorites"
+                />
             </CardFooter>
         </Card>
     )

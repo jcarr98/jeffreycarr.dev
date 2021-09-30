@@ -27,6 +27,9 @@ function Recipe(props) {
         let api = "http://localhost:3002/api/get/" + id;
         Axios.get(api).then((data) => {
             setRecipeInfo(data.data[0]);
+            
+            // Set title here since setting states is async and we want title immediately
+            document.title = "Jean's Recipe Book - " + data.data[0].name;
         });
 
         // Load ingredients

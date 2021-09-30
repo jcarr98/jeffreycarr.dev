@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Box, Button, Footer, Heading, List, Paragraph, Text } from 'grommet';
-import { LinkPrevious } from 'grommet-icons';
+import { Box, Button, Heading, List, Paragraph, Text } from 'grommet';
 
 import AppBar from '../../../globals/components/AppBar';
 import Back from '../../../globals/components/Back';

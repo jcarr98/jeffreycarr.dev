@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import Axios from 'axios';
 import { Box, Button, Grid, Heading } from 'grommet';
-import { LinkPrevious } from 'grommet-icons';
 
 import AppBar from '../../../globals/components/AppBar';
 import ProjectCard from '../components/ProjectCard';
-import Loading from '../../RecipeBook/components/Loading';
+import Loading from '../../../globals/components/Loading';
 import Back from '../../../globals/components/Back';
 
 function Projects() {

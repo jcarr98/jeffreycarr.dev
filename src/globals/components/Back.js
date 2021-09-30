@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box, Button } from 'grommet';
-import { LinkPrevious } from 'grommet-icons';
+import { GrLinkPrevious } from 'react-icons/gr';
 
 function Back(props) {
     return(
@@ -9,7 +9,7 @@ function Back(props) {
             <Button 
                 href={props.link}
                 color="main" 
-                icon={ <LinkPrevious color="main" size="medium" /> } 
+                icon={ <GrLinkPrevious color="main" size="medium" /> } 
                 label={props.label}
                 plain
             />

@@ -4,8 +4,8 @@ import { useHistory } from 'react-router';
 import { Anchor, Avatar, Box, Button, Paragraph, Text } from 'grommet';
 import { Github, Linkedin } from 'grommet-icons';
 
-import AppBar from '../../../globals/components/AppBar';
-import profile from '../assets/profile.jpg';
+import AppBar from '../../components/AppBar';
+import profile from './assets/profile.jpg';
 
 function Main() {
     const history = useHistory();

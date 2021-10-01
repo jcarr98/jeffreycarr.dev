@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Box, Button, Heading, List, Paragraph, Text } from 'grommet';
 
-import AppBar from '../../../globals/components/AppBar';
-import Back from '../../../globals/components/Back';
-import resume from '../assets/Jeffrey Carr Resume.pdf';
+import resume from './assets/Jeffrey Carr Resume.pdf';
+// Global components
+import AppBar from '../../components/AppBar';
+import Back from '../../components/Back';
 
 function Resume() {
     return(

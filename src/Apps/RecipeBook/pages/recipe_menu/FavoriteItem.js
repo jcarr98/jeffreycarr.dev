@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Box, Button } from 'grommet';
 import { Trash } from 'grommet-icons';
 
 function FavoriteItem(props) {
+    const link = "http://recipe.localhost:3000/recipe/" + props.id;
+
     function remove() {
-        props.removeFromFavorites(props.fav.id);
+        props.remove(props.id);
     }
 
     return(
@@ -15,8 +17,8 @@ function FavoriteItem(props) {
                     secondary
                     plain
                     color="main"
-                    href={props.fav.link}
-                    label={props.fav.name}
+                    href={link}
+                    label={props.name}
                 />
             </Box>
             <Box>

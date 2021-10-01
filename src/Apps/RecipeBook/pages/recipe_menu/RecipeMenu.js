@@ -19,20 +19,12 @@ function RecipeMenu() {
     const [searchValue, setSearchValue] = useState([]);
     const [categoriesValue, setCategoriesValue] = useState([]);
     const [favorites, setFavorites] = useState([]);
-    const [favoritedIds, setFavoritedIds] = useState([]);
 
     // Load recipes
     useEffect(() => {
         document.title = "Jean's Recipe Book"
         // Get favorite items
         setFavorites(loadCookies());
-
-        // Get favorited ids
-        let ids = [];
-        for(let i = 0; i < favorites.length; i++) {
-            ids.push(favorites[i].id);
-        }
-        setFavoritedIds(ids);
 
         // Get all categories
         Axios.get("http://localhost:3002/api/getCategories").then((data) => {
@@ -69,23 +61,9 @@ function RecipeMenu() {
 
     const removeFromFavorites = useCallback((id) => {
         let newFavorites = [...favorites];
-        let newIds = [...favoritedIds];
-        let index = -1;
-        let idsIndex = -1;
 
         // Search for item
-        for(let i = 0; i < favorites.length; i++) {
-            if(favorites[i].id === id) {
-                index = i;
-                break;
-            }
-        }
-        for(let i = 0; i < favorites.length; i++) {
-            if(favoritedIds[i] === id) {
-                idsIndex = i;
-                break;
-            }
-        }
+        let index = newFavorites.indexOf(id);
 
         // Check if item exists
         if(index < 0) {
@@ -94,36 +72,28 @@ function RecipeMenu() {
 
         // Remove item
         newFavorites.splice(index, 1);
-        newIds.splice(idsIndex, 1);
 
         // Update list and cookie
         setFavorites(newFavorites);
-        setFavoritedIds(newIds);
-        localStorage.setItem('favorites', JSON.stringify(newFavorites));
+        console.log("Removed favorite: " + id);
+        // If no more items in cookie, just remove it
+        newFavorites.length === 0 ? localStorage.removeItem('favorites') : localStorage.setItem('favorites', JSON.stringify(newFavorites));
     });
 
     // Callback allows for child elements to use this method
-    const addToFavorites = useCallback((name, id) => {
-        // Create new object
-        let link = "http://recipe.localhost:3000/recipe/" + id;
-        let newItem = {name: name, id: id, link: link};
-        
+    const addToFavorites = useCallback((id) => {
         // Check if item already exists
-        for(let i = 0; i < favorites.length; i++) {
-            if(favorites[i].id === id) {
-                return;
-            }
+        if(favorites.includes(id)) {
+            return;
         }
 
         // Add new object to list
         let newFavorites = [...favorites];
-        newFavorites.push(newItem);
-        let newIds = [...favoritedIds];
-        newIds.push(id);
+        newFavorites.push(id);
 
         // Update list and cookie
         setFavorites(newFavorites);
-        setFavoritedIds(newIds);
+        console.log("New favorite: " + id);
         localStorage.setItem('favorites', JSON.stringify(newFavorites));
     });
 
@@ -152,7 +122,6 @@ function RecipeMenu() {
                     placeholder="Search"
                     icon={<Search />}
                     reverse
-                    value={searchValue}
                     onChange={event => setSearchValue(event.target.value)}
                     a11yTitle="A search box to filter shown recipes"
                 />
@@ -160,16 +129,20 @@ function RecipeMenu() {
             <Accordion width="70%">
                 <AccordionPanel label="Favorites">
                     {loading ? <Loading text="Loading favorites..." /> : null}
-                    {loading || favorites.length === 0 ? <Text>No favorites to show</Text> : null}
-                    <ul style={{visibility: loading || favorites.length === 0 ? "hidden" : "visible"}}>
-                        {favorites.map((val) => {
-                            return(
-                                <li key={val.id}>
-                                    <FavoriteItem fav={val} removeFromFavorites={removeFromFavorites} />
-                                </li>
-                            );
-                        })}
-                    </ul>
+                    <Box style={{visibility: loading ? "hidden" : "visible"}}>
+                        {favorites.length === 0 ? <Text>No favorites to show</Text> : null}
+                        <ul style={{visibility: favorites.length === 0 ? "hidden" : "visible"}}>
+                            {recipeList.filter(function(val,key) {
+                                return favorites.includes(val.id);
+                            }).map((val,key) => {
+                                return(
+                                    <li key={val.id}>
+                                        <FavoriteItem name={val.name} id={val.id} remove={removeFromFavorites} />
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </Box>
                 </AccordionPanel>
             </Accordion>
 
@@ -185,7 +158,7 @@ function RecipeMenu() {
                 }).filter(function(val,key) {
                     return(val.name.toLowerCase().indexOf(searchValue) > -1 ? true : false);
                 }).map((val,key) => {
-                    return(<RecipeCard key={val.id} name={val.name} details={val.details} id={val.id} ids={favoritedIds} add={addToFavorites} remove={removeFromFavorites} />);
+                    return(<RecipeCard key={val.id} item={val} favorites={favorites} add={addToFavorites} remove={removeFromFavorites} />);
                 })}
             </Grid>
         </Box>

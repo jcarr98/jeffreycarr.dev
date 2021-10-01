@@ -5,23 +5,11 @@ import { BsHeart, BsHeartFill } from 'react-icons/bs';
 
 function RecipeCard(props) {
     const [el, setel] = useState([]);
-    const [favorited, setFavorited] = useState(false);
-    const link = "http://recipe.localhost:3000/recipe/" + props.id;
+    const link = "http://recipe.localhost:3000/recipe/" + props.item.id;
 
     useEffect(() => {
         // Default to no elevation
         setel("none");
-
-        /* Check if favorited item */
-        // Grab favorited items
-        let favs = localStorage.getItem('favorites') === null ? [] : JSON.parse(localStorage.getItem('favorites'));
-        // Check if this id is already favorited
-        for(let i = 0; i < favs.length; i++) {
-            if(favs[i].id === props.id) {
-                setFavorited(true);
-                break;
-            }
-        }
     }, []);
 
     /** Apply elevation to card on mouse enter */
@@ -37,10 +25,7 @@ function RecipeCard(props) {
     /** Update the status of whether this item is favorited or not */
     function updateFavorite() {
         // Use callbacks to update cookie
-        favorited ? props.remove(props.id) : props.add(props.name, props.id);
-
-        // Update state
-        setFavorited(!favorited);
+        props.favorites.includes(props.item.id) ? props.remove(props.item.id) : props.add(props.item.id);
     }
 
     return (
@@ -54,10 +39,10 @@ function RecipeCard(props) {
         >
             <CardHeader size="small" width="full" round>
                 <Box width="full" align="center">
-                    <Heading level="3" weight="bold">{props.name}</Heading>
+                    <Heading level="3" weight="bold">{props.item.name}</Heading>
                 </Box>
             </CardHeader>
-            <CardBody pad="small">{props.details}</CardBody>
+            <CardBody pad="small">{props.item.details}</CardBody>
             <CardFooter pad="small">
                 {/* Link to recipe */}
                 <Button 
@@ -72,7 +57,7 @@ function RecipeCard(props) {
                     plain
                     color="main"
                     onClick={() => updateFavorite()} 
-                    label={props.ids.includes(props.id) ? <BsHeartFill size="1.25em" color="main" /> : <BsHeart size="1.25em" color="main" />}
+                    label={props.favorites.includes(props.item.id) ? <BsHeartFill size="1.25em" color="main" /> : <BsHeart size="1.25em" color="main" />}
                 />
             </CardFooter>
         </Card>

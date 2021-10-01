@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import { Accordion, AccordionPanel, Box } from 'grommet';
+import { Accordion, AccordionPanel, Box, CheckBox, Text } from 'grommet';
 import Axios from 'axios';
 
 import AppBar from '../../../../globals/components/AppBar';
 import FavoriteButton from './FavoriteButton';
+import WakeLock from './WakeLock';
 import Loading from '../../../../globals/components/Loading';
 import DirectionsList from './DirectionsList';
 import IngredientsList from './IngredientsList';
@@ -38,9 +39,14 @@ function Recipe() {
         <Box align="center" full responsive>
             <AppBar />
 
-            {/* Back to recipe list */}
-            <Back link="http://recipe.localhost:3000/" label="Back to Recipe List" />
+            <Box direction="row" fill>
+                {/* Back to recipe list */}
+                <Back link="http://recipe.localhost:3000/" label="Back to Recipe List" />
 
+                {/* WakeLock toggle */}
+                <WakeLock />
+            </Box>
+            
             {loading ? <Loading text="Loading Recipe..." /> : null}
             <Box align="center" style={{visibility: loading ? "hidden" : "visible"}}>
                 <h1>{recipeInfo.name}</h1>

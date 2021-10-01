@@ -31,7 +31,7 @@ function IngredientsList(props) {
             setIngredients(items);
             setLoading(false);
         });
-    }, []);
+    }, [props.id]);
 
     return(
         <Box align="center" pad="medium">

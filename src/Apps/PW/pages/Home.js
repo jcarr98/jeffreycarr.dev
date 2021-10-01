@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 
-import { Anchor, Avatar, Box, Button, Image, Paragraph, Text } from 'grommet';
+import { Anchor, Avatar, Box, Button, Paragraph, Text } from 'grommet';
 import { Github, Linkedin } from 'grommet-icons';
 
 import AppBar from '../../../globals/components/AppBar';

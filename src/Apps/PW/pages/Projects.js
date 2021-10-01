@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import Axios from 'axios';
-import { Box, Button, Grid, Heading } from 'grommet';
+import { Box, Grid, Heading } from 'grommet';
 
 import AppBar from '../../../globals/components/AppBar';
 import ProjectCard from '../components/ProjectCard';

@@ -17,7 +17,7 @@ function DirectionsList(props) {
             // Done loading
             setLoading(false);
         });
-    }, []);
+    }, [props.id]);
 
     return(
         <Box>

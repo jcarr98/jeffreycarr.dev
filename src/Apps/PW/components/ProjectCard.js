@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { Box, Button, Card, CardHeader, CardBody, CardFooter, Heading } from 'grommet';
-import { Link, LinkNext } from 'grommet-icons';
+import { LinkNext } from 'grommet-icons';
 
 function ProjectCard(props) {
     const [el, setel] = useState([]);

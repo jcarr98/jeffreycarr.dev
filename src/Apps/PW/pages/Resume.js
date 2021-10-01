@@ -4,7 +4,7 @@ import { Box, Button, Heading, List, Paragraph, Text } from 'grommet';
 
 import AppBar from '../../../globals/components/AppBar';
 import Back from '../../../globals/components/Back';
-import resume from '../assets/Jeffrey\ Carr\ Resume.pdf';
+import resume from '../assets/Jeffrey Carr Resume.pdf';
 
 function Resume() {
     return(

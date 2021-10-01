@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Axios from 'axios';
-import { Accordion, AccordionPanel, Box, Button, CheckBoxGroup, DropButton, Grid, Heading, Nav, Text, TextInput } from 'grommet';
+import { Accordion, AccordionPanel, Box, CheckBoxGroup, DropButton, Grid, Heading, Nav, Text, TextInput } from 'grommet';
 import { Search } from 'grommet-icons';
 
 import AppBar from '../../../../globals/components/AppBar';
@@ -59,7 +59,7 @@ function RecipeMenu() {
         return favs === null ? [] : JSON.parse(favs);
     }
 
-    const removeFromFavorites = useCallback((id) => {
+    const removeFromFavorites = (id) => {
         let newFavorites = [...favorites];
 
         // Search for item
@@ -78,10 +78,9 @@ function RecipeMenu() {
         console.log("Removed favorite: " + id);
         // If no more items in cookie, just remove it
         newFavorites.length === 0 ? localStorage.removeItem('favorites') : localStorage.setItem('favorites', JSON.stringify(newFavorites));
-    });
+    }
 
-    // Callback allows for child elements to use this method
-    const addToFavorites = useCallback((id) => {
+    const addToFavorites = (id) => {
         // Check if item already exists
         if(favorites.includes(id)) {
             return;
@@ -95,7 +94,7 @@ function RecipeMenu() {
         setFavorites(newFavorites);
         console.log("New favorite: " + id);
         localStorage.setItem('favorites', JSON.stringify(newFavorites));
-    });
+    }
 
     return (
         <Box align="center" full responsive>

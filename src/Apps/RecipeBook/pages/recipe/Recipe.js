@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Accordion, AccordionPanel, Box, CheckBox, Text } from 'grommet';
+import { Accordion, AccordionPanel, Box } from 'grommet';
 import Axios from 'axios';
 
 import AppBar from '../../../../globals/components/AppBar';
@@ -33,7 +33,7 @@ function Recipe() {
             document.title = "Jean's Recipe Book - " + data.data[0].name;
             setLoading(false);
         });
-    }, []);
+    }, [id]);
 
     return(
         <Box align="center" full responsive>

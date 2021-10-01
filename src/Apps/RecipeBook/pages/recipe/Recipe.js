@@ -41,7 +41,7 @@ function Recipe() {
 
             <Box direction="row" fill>
                 {/* Back to recipe list */}
-                <Back link="http://recipe.localhost:3000/" label="Back to Recipe List" />
+                <Back route="/" label="Back to Recipe List" />
 
                 {/* WakeLock toggle */}
                 <WakeLock />

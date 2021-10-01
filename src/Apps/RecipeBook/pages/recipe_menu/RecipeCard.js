@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 
 import { Box, Button, Card, CardHeader, CardBody, CardFooter, Heading } from 'grommet';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 
 function RecipeCard(props) {
     const [el, setel] = useState([]);
-    const link = "http://recipe.localhost:3000/recipe/" + props.item.id;
+    const history = useHistory();
 
     useEffect(() => {
         // Default to no elevation
@@ -48,7 +49,7 @@ function RecipeCard(props) {
                 <Button 
                     primary 
                     color="main" 
-                    href={link} 
+                    onClick={() => {history.push('/recipe/' + props.item.id)}}
                     label="Check Out" 
                 />
                 {/* Add to favorites */}

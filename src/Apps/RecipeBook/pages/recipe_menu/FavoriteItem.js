@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router';
 
 import { Box, Button } from 'grommet';
 import { Trash } from 'grommet-icons';
 
 function FavoriteItem(props) {
-    const link = "http://recipe.localhost:3000/recipe/" + props.id;
+    const history = useHistory();
 
     function remove() {
         props.remove(props.id);
@@ -17,7 +18,7 @@ function FavoriteItem(props) {
                     secondary
                     plain
                     color="main"
-                    href={link}
+                    onClick={() => {history.push('/recipe/' + props.id)}}
                     label={props.name}
                 />
             </Box>

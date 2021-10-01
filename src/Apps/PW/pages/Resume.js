@@ -12,7 +12,7 @@ function Resume() {
             <AppBar />
 
             {/* Home link */}
-            <Back link="http://localhost:3000/" label="Back to Home" />
+            <Back route="/" label="Back to Home" />
 
             <Heading>Resume Overview</Heading>
             {/* Education */}

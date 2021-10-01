@@ -26,7 +26,7 @@ function Projects() {
             <AppBar />
 
             {/* Home link */}
-            <Back link="http://localhost:3000/" label="Back to Home" />
+            <Back route="/" label="Back to Home" />
 
             <Box width="full" align="center">
                 <Heading>My Projects</Heading>

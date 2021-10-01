@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 import { Anchor, Avatar, Box, Button, Image, Paragraph, Text } from 'grommet';
 import { Github, Linkedin } from 'grommet-icons';
@@ -7,6 +8,8 @@ import AppBar from '../../../globals/components/AppBar';
 import profile from '../assets/profile.jpg';
 
 function Main() {
+    const history = useHistory();
+
     return(
         <Box align="center" animation="fadeIn" responsive>
             <AppBar />
@@ -44,7 +47,7 @@ function Main() {
             <Box width="full" direction="row" align="center">
                 <Box pad="small" align="end" fill>
                     <Button 
-                        href="http://localhost:3000/resume"
+                        onClick={() => {history.push('/resume')}}
                         primary
                         color="main"
                         label="Resume"
@@ -54,7 +57,7 @@ function Main() {
                 </Box>
                 <Box pad="small" align="start" fill>
                     <Button
-                        href="http://localhost:3000/projects"
+                        onClick={() => {history.push('/projects')}}
                         primary
                         color="main"
                         label="Projects"

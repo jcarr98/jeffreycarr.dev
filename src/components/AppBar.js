@@ -26,7 +26,7 @@ function AppBar() {
                 }}
                 items={[
                     {label: "Main Website", onClick: () => {history.push('/')}},
-                    {label: "Recipe Book", onClick: () => {window.location.href = "http://recipe.localhost:3000/"}}
+                    {label: "Recipe Book", onClick: () => {window.location.href = "https://confident-wozniak-d072eb.netlify.app/"}}
                 ]}
             >
                 <Box direction="column" align="center">

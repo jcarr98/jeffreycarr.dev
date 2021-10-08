@@ -4,7 +4,7 @@ import { Box, Button, Card, CardHeader, CardBody, CardFooter, Heading } from 'gr
 import { LinkNext } from 'grommet-icons';
 
 function ProjectCard(props) {
-    const [el, setel] = useState([]);
+    const [el, setel] = useState('none');
 
     useEffect(() => {
         setel("none");

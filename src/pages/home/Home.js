@@ -87,7 +87,7 @@ function Main() {
                     <Paragraph fill margin="small">
                         In my free time, I like to play around with programming projects trying to learn new skills. I also enjoy playing
                         sports with my friends. If I'm feeling especially active that day, I might enjoy going outside on a hike. A couple summers
-                        ago I spent a lot of time with my mom driving from Massachusetts to California and back. We even make a
+                        ago I spent a lot of time with my mom driving from Massachusetts to California and back. She even made a
                         small <Anchor href="https://jeffjeanusa.blogspot.com/" target="_blank" color="main">blog</Anchor> about it!
                     </Paragraph>
                 </Box>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jeffrey Carr</title>
+
+    <!-- Metadata -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Jeffrey Carr" />
+    <meta name="description" content="Learn more about my by touring my website" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/animations.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Sriracha&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c7ff23f1ca.js" crossorigin="anonymous"></script>
+  </head>
+  <body onload="setupAnimations(); loadProjects();">
+    <!-- Banner -->
+    <nav class="box box-full box-vertical">
+      <div class="banner">
+        <div class="box box-small" style="padding-left: 2em;">
+          <h4>
+            <a href="#"><i class="fa-solid fa-house fa-xl"></i></a>
+          </h4>
+        </div>
+        <div class="box box-vertical">
+          <div class="banner-title">Jeffrey Carr</div>
+        </div>
+        <div class="box box-small" style="padding-right: 2em;">
+          <a onclick="toggleDropdown()" id="apps-dropdown">
+            <div class="box box-vertical" id="apps-dropdown">
+                <i class="fa-solid fa-cubes-stacked" id="apps-dropdown"></i>
+                <span id="apps-dropdown">Apps</span>
+            </div>
+          </a>
+          <div class="dropdown-content" id="apps-dropdown-container">
+            <a href="#">Main Site</a>
+            <a href="https://recipe.jeffreycarr.dev">Recipe Book</a>
+            <a href="https://bingo.jeffreycarr.dev">Bingo Creator</a>
+          </div>
+        </div>  
+      </div>
+    </nav>
+
+    <!-- Intro Section -->
+    <section class="box box-vertical">
+      <div id="video-background">
+        <video autoplay muted loop>
+          <source src="./static/about.mp4" />
+        </video>
+      </div>
+
+      <div class="box box-vertical section-header" style="background: none;">
+        <div class="box box-full section-title" style="text-align: center; justify-content: center;">
+          <span id="hello-text">Hello, my name is Jeffrey Carr</span>
+        </div>
+        <div class="box box-medium">
+          <img class="profile-xxlarge profile-round" src="./static/profile.jpg" />
+        </div>
+        <div class="box section-subtitle">
+          <div class="box">
+            <span>Cyber Analyst.
+          </div>
+          <div class="box" style="animation-delay: 2s; padding: 0 0.5em;">
+            <span>Programmer.</span>
+          </div>
+          <div class="box" style="animation-delay: 3s">
+            <span>Person.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="box box-vertical">
+        <p>
+          I am currently a Scientist within the Naval Information Warfare Center Atlantic. I 
+          started this position August 2nd, 2021, and it is my first full time job out of college. 
+          I received a Bachelor of Scientist in Computer Science from the University of Massachusetts 
+          Amherst in May 2021. Want to know more about my professional career? Connect with me on 
+          <a href="https://www.linkedin.com/in/jeffrey-carr/" target="_blank">LinkedIn!</a>. All my
+          programming projects can be found on my <a href="https://www.github.com/jcarr98" target="_blank">Github</a>.
+        </p>
+        <p>
+          I've been interested in computers since middle school when I started playing video games and 
+          thought it was amazing what you could do with a computer. Freshman year of high school, I 
+          started a programming club as a place where students could collaborate and learn about 
+          programming. In college, I started a video game development club to help other students help 
+          each other learn the in's and out's of video game development. The club grew up to over 50 
+          members.
+        </p>
+        <p>
+          In my free time, I like to play around with programming projects trying to learn new skills. 
+          I also enjoy playing sports with my friends. If I'm feeling especially active that day, I 
+          might enjoy going outside on a hike. A couple summers ago I spent a lot of time with my mom 
+          driving from Massachusetts to California and back. She even made a short 
+          <a href="https://jeffjeanusa.blogspot.com/" target="_blank">blog</a> about it!
+        </p>
+      </div>
+      
+      <div class="box">
+        <div class="box box-medium">
+          <a class="btn" id="resumeBtn" href="#resume" style="text-decoration: none;">
+            To Resume
+            <i class="fa-solid fa-arrow-down animate-down" id="resumeArrow"></i>
+          </a>
+        </div>
+        <div class="box box-medium">
+          <a class="btn" id="projectsBtn" href="#projects" style="text-decoration: none;">
+            To Projects
+            <i class="fa-solid fa-arrow-down animate-down" id="projectsArrow"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume section -->
+    <section class="box box-vertical" id="resume">
+      <!-- Resume Section Header -->
+      <div class="box box-full box-vertical section-header">
+        <div class="box section-title">
+          Resume
+        </div>
+        <div class="box" style="padding-bottom: 1em;">
+          <a class="link-with-icon a-secondary" href="static\Resume 08-26-2022.pdf" target="_blank">
+            <span>Download Resume</span>
+            <i class="fa-solid fa-file-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Resume section body -->
+      <div class="box box-full box-vertical">
+        <!-- Resume area -->
+        <div class="box box-vertical resume-area">
+          <!-- Intro -->
+          <div class="box box-full box-vertical">
+            <h1 style="margin-bottom: 0.1em;">Jeffrey Carr</h1>
+            <span>(978)-437-7877 | <a href="mailto:jeffrey.carr98@gmail.com">jeffrey.carr98@gmail.com</a></span>
+            <span><a href="https://linkedin.com/in/jeffrey-carr" target="_blank">linkedin.com/in/jeffrey-carr</a></span>
+            <span><a href="https://jeffreycarr.dev" target="_blank">www.jeffreycarr.dev</a></span>
+          </div>
+          <!-- Education -->
+          <div class="box box-vertical resume-section">
+            <span class="resume-section-header">EDUCATION</span>
+            <span>
+              <b>University of Massachusetts Amherst</b> May 2021 Bachelor of Science in  Computer Science
+            </span>
+            <ul style="margin: 0.2em;">
+              <li>Scholarships: NSF Scholarship for Service fellow</li>
+              <li>Honors/Awards: National Science Foundation CyberCorps Scholarship for Service, Commonwealth 
+                Honors College, Dean's Award</li>
+              <li>Relevant Coursework: Introduction to Computer and Network Security, System Defense and Test, 
+                Computer Systems, Probability, Algorithms, Introduction to Computation</li>
+            </ul>
+          </div>
+          <!-- Skills -->
+          <div class="box box-vertical resume-section">
+            <span class="resume-section-header">SKILLS</span>
+            <span><b>Languages</b> - Java, C, C++, Python, React, Angular</span>
+            <span><b>Technology</b> - Nmap, Terminal, Arduino, FireEye, Symantec Bluecoat, ThreatGrid, Linux</span>
+          </div>
+          <!-- Experience -->
+          <div class="box box-vertical resume-section">
+            <span class="resume-section-header">EXPERIENCE</span>
+            <!-- NIWC -->
+            <div class="box box-vertical resume-section">
+              <span>Naval Information Warfare Center, August 2021 - Current</span>
+              <span><i>Scientist, Incident Response and Directive Team</i></span>
+              <span><i>Operations Watch Analyst, Cybersecurity Service Provider</i></span>
+              <ul>
+                <li>Enforce directives passed in Congress among all devices and domains in NIWC</li>
+                <li>Review and update government procedures for handling incidents</li>
+                <li>Parse through system logs to identify signs of nation-state level APT intrusion</li>
+                <li>Write and improve indicators to automatically identify suspicious behavior on user machines</li>
+              </ul>
+            </div>
+            <!-- Liberty Mutual -->
+            <div class="box box-vertical resume-section">
+              <span>Liberty Mutual, May 2020 - August 2020</span>
+              <span><i>Global Cybersecurity Solutions Intern</i></span>
+              <ul>
+                <li>Created and published a web application in Angular aimed at streamlining threat modeling process</li>
+                <li>Leveraged Angular and PrimeNG to craft an aesthetically pleasing and functional user interface</li>
+                <li>Implemented a Java backend with REST API</li>
+                <li>Product was showcased to 50 employees and deployed company wide by an application development teams</li>
+              </ul>
+            </div>
+            <!-- Liberty Mutual (again) -->
+            <div class="box box-vertical resume-section">
+              <span>Liberty Mutual, June 2019 - August 2019</span>
+              <span><i>Information Security Analyst, Security Operations Center</i></span>
+              <ul>
+                <li>Analyzed suspicious emails for phishing and malware attacks</li>
+                <li>Assessed retro alerts of malware coming through firewall to prevent cyber attacks on personal devices</li>
+                <li>Investigated malware by isolating and testing code to determine malicious command and control domains</li>
+                <li>Researched device histories to gain insight into the timeline of suspicious processes</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Projects -->
+          <div class="box box-vertical resume-section">
+            <span class="resume-section-header">PROJECTS</span>
+            <!-- HackUMass -->
+            <span><i>Hack UMass Hackathon</i>, October 2018</span>
+            <ul>
+              <li>Built a proximity sensor with adjustable distance sensing using an Arduino with dynamic interface on a website</li>
+            </ul>
+
+            <!-- Personal projects -->
+            <span><i>Personal Projects</i></span>
+            <ul>
+              <li>Built secure peer-to-peer chat system using RSA with 2048 bit keys and AES-256-CBC encryption in Java</li>
+              <li>Applied a combination of Nmap, John the Ripper, Crunch, Hydra, and SamDump2 to crack passwords on vulnerable machines</li>
+              <li>Coded program to index and rank Shakespeare plays based on queries of words utilizing both BM25 and Language-Modeling 
+                with Dirichlet smoothing algorithms, written in Java</li>
+              <li>Coded artificial intelligence to guess votes of Congressmen in 2018 using a decision tree classification algorithm written in Python</li>
+              <li>Gold Team member for the Palmetto Cyber Defense Competition 2022</li>
+              <li>React website with Nodejs backend to create and display recipe books stored in a Postgres-SQL database</li>
+            </ul>
+          </div>
+        </div>        
+      </div>
+    </section>
+
+    <section class="box box-vertical" id="projects">
+      <div class="box box-vertical section-header">
+        <div class="box section-title">
+          Projects
+        </div>
+      </div>
+      <div class="box box-vertical section-body">
+        <div id="projectsContainer" class="projects-container box box-wrap">
+          Loading projects...
+        </div>
+      </div>
+    </section>
+
+    <div class="box upButton" id="upButtonContainer">
+      <a class="btn" id="upButton" href="#">Back to top</a>
+    </div>
+
+    <script type="text/javascript" src="./js/index.js"></script>
+  </body>
+</html>

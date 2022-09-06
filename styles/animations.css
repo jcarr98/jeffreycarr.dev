@@ -1,0 +1,51 @@
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes godown {
+  0% {
+    top: 0;
+  }
+
+  25% {
+    top: -0.2em;
+  }
+
+  50% {
+    top: 0;
+  }
+
+  75% {
+    top: 0.2em;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes unpop {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0);
+  }
+}
